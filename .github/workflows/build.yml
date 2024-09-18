@@ -17,6 +17,7 @@ jobs:
           distribution: 'temurin'
       - run: mvn clean install
       #- run: docker build .  --file Dockerfile
-      - run: docker build -t bitcoin-backend-image --file Dockerfile
+      #- run: docker build -t bitcoin-backend-image --file Dockerfile
+      - run: docker build -f Dockerfile -t bitcoin-backend-image .
       - run: docker run bitcoin-backend-image
 
