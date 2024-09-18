@@ -29,7 +29,7 @@ public class BitcoinService {
         return new Response(bitcoinPriceBetweenFromAndTo, max, min);
     }
 
-    private static Map<LocalDate, BigDecimal> priceBetweenTwoDates(BitcoinCommand command, Map<LocalDate, BigDecimal> bitcoinPriceIndex) {
+    private Map<LocalDate, BigDecimal> priceBetweenTwoDates(BitcoinCommand command, Map<LocalDate, BigDecimal> bitcoinPriceIndex) {
         Map<LocalDate, BigDecimal> bitcoinPriceBetweenFromAndTo = new HashMap<>();
 
         bitcoinPriceIndex.keySet().stream()
