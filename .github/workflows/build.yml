@@ -16,5 +16,5 @@ on:
             java-version: '17'
             distribution: 'temurin'
         - run: mvn clean install
-        - run: docker build .  --file Dockerfile
+        - run: docker build .  --file ../../Dockerfile
 
