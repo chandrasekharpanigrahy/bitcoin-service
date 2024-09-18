@@ -21,6 +21,16 @@ jobs:
       #- run: docker build .  --file Dockerfile
       #- run: docker build -t bitcoin-backend-image --file Dockerfile
       - run: docker build -f Dockerfile -t bitcoin-backend-image .
-      - run: docker run -p 8080:8080 bitcoin-backend-image
+      #- run: docker run -p 8080:8080 bitcoin-backend-image
+      - run: docker run -d -p 8080:8080 --name bitcoin-service bitcoin-backend-image:latest
+      - name: Download ngrok
+        run: wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && unzip ngrok-stable-linux-amd64.zip
 
+      - name: Run ngrok
+        run: ./ngrok http 8080 --log=stdout > ngrok.log &
+
+      - name: Get ngrok URL
+        run: |
+          sleep 5
+          curl --silent --show-error http://127.0.0.1:4040/api/tunnels | jq -r .tunnels[0].public_url
 
