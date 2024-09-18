@@ -27,7 +27,8 @@ jobs:
         run: wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && unzip ngrok-stable-linux-amd64.zip
       - name: Run ngrok
         run: ./ngrok http 8080 --log=stdout > ngrok.log &
-      - run: tail -200 ngrok.log
+      - name: Install jq
+        run: sudo apt-get install -y jq
       - name: Get ngrok URL
         run: |
           sleep 5
