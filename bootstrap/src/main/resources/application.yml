@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: bitcoin-history-service
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: false
+    serialization:
+      write-dates-as-timestamps: false
+count-desk:
+  url: https://api.coindesk.com/
