@@ -21,6 +21,6 @@ jobs:
       #- run: docker build .  --file Dockerfile
       #- run: docker build -t bitcoin-backend-image --file Dockerfile
       - run: docker build -f Dockerfile -t bitcoin-backend-image .
-      - run: docker run bitcoin-backend-image
+      - run: docker run -p 8080:8080 bitcoin-backend-image
 
 
