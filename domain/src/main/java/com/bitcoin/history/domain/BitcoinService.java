@@ -9,15 +9,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BitcoinService {
-    private final BaseCountDeskProvider provider;
+    private final CountDeskService countDeskService;
 
-    public BitcoinService(BaseCountDeskProvider provider) {
-        this.provider = provider;
+    public BitcoinService(CountDeskService countDeskService) {
+        this.countDeskService = countDeskService;
     }
 
     public Response getHistory(BitcoinCommand command) {
-        // Todo add offline feature, add a provider which will decide offline or online based on property toggle
-        var bitcoinPriceIndex = provider.getBitCoinHistory().bpi();
+        var bitcoinPriceIndex = countDeskService.getBitCoinHistory().bpi();
         // there can be multiple max and min value (in case of same value) so instead of key getting value
         Map<LocalDate, BigDecimal> bitcoinPriceBetweenFromAndTo = priceBetweenTwoDates(command, bitcoinPriceIndex);
 

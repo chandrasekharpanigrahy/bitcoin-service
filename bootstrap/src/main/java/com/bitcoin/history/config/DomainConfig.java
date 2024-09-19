@@ -21,8 +21,8 @@ public class DomainConfig {
     private boolean countDeskOffLine;
 
     @Bean
-    public BitcoinService bitcoinService(CountDeskProvider provider){
-        return new BitcoinService(provider);
+    public BitcoinService bitcoinService(CountDeskService countDeskService){
+        return new BitcoinService(countDeskService);
     }
 
     @Bean
