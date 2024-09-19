@@ -2,6 +2,9 @@ package com.bitcoin.history.restapi;
 
 import com.bitcoin.history.domain.BitcoinService;
 import com.bitcoin.history.domain.entities.Response;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,9 +24,14 @@ public class BitcoinController {
         this.service = service;
     }
 
+    @Operation(summary = "Fetches the historical Bitcoin price along with the highest & lowest price markers ")
     @GetMapping(path = "/bitcoin/history", produces = {APPLICATION_JSON_VALUE})
     @CrossOrigin(origins = "*")
-    // Todo allow only web and remove *
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successfully Fetched bitcoin history"),
+            @ApiResponse(responseCode = "400", description = "given input details are not correct")
+    })
+            // Todo allow only web and remove *
     public ResponseEntity<Response> getHistory(BitcoinRequest bitcoinRequest) {
         return ResponseEntity.ok(service.getHistory(bitcoinRequest.toCommand()));
     }
