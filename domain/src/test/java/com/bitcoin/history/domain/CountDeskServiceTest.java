@@ -10,7 +10,6 @@ import java.util.Map;
 
 import static java.math.BigDecimal.ONE;
 import static java.math.BigDecimal.TEN;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class CountDeskServiceTest {

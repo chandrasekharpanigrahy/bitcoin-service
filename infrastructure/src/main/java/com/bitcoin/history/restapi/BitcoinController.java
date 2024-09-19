@@ -12,6 +12,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping("/v1")
+// TODO add swagger
 public class BitcoinController {
 
     private final BitcoinService service;
