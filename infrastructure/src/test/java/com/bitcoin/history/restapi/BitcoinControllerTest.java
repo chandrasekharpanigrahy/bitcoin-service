@@ -12,7 +12,7 @@ import java.util.Map;
 
 import static org.mockito.Mockito.*;
 
-class BitcoinControllerTest {
+public class BitcoinControllerTest {
 
     private BitcoinService service;
     private BitcoinController controller;

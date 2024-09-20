@@ -13,19 +13,18 @@ import java.util.Map;
 
 import static java.math.BigDecimal.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class BitcoinServiceTest {
 
-    private CountDeskService countDeskService;
+    private CountDeskService countDeskService = mock(CountDeskService.class);
 
-    private BitcoinService service;
+    public BitcoinService service = new BitcoinService(countDeskService);
 
     @BeforeEach
     public void init() {
-        countDeskService = Mockito.mock(CountDeskService.class);
-        service = new BitcoinService(countDeskService);
         when(countDeskService.getBitCoinHistory())
                 .thenReturn(new BitcoinPriceIndex(Map.of(LocalDate.now().minusDays(1), ONE,
                         LocalDate.now().minusDays(2), TEN)));
@@ -33,7 +32,9 @@ public class BitcoinServiceTest {
 
     @Test
     public void should_call_provider_to_get_history_with_min_and_max_for_given_dates_and_multiply_price_to_currency_price() {
+
         Response response = service.getHistory(new BitcoinCommand(LocalDate.now().minusDays(3), LocalDate.now(), "USD", TEN));
+
         verify(countDeskService).getBitCoinHistory();
         assertEquals(BigDecimal.valueOf(100L), response.max());
         assertEquals(TEN, response.min());

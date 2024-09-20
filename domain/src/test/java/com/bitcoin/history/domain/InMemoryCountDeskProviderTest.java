@@ -12,7 +12,7 @@ import static java.math.BigDecimal.ONE;
 import static java.math.BigDecimal.TEN;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class InMemoryCountDeskProviderTest {
+public class InMemoryCountDeskProviderTest {
 
     @Test
     void setBitCoinHistory_when_in_memory_is_empty() {
