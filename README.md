@@ -24,6 +24,7 @@ For more information please click [here](https://en.wikipedia.org/wiki/Hexagonal
         url: https://api.coindesk.com/
         offline: false
 ```
+![img_1.png](img_1.png)
 
 # Offline Mode
     It uses in memory cache to fetch bitcoin prices in offline mode.
@@ -34,6 +35,8 @@ For more information please click [here](https://en.wikipedia.org/wiki/Hexagonal
         url: https://api.coindesk.com/
         offline: true
 ```
+![img_2.png](img_2.png)
+
 # Documentation
     For documentation click on the below image or go to http://localhost:8080/swagger-ui/index.html#/ after running the application locally.
 ![img.png](img.png)
