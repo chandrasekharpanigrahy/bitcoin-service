@@ -15,7 +15,6 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping("/v1")
-// TODO add swagger
 public class BitcoinController {
 
     private final BitcoinService service;
@@ -24,14 +23,15 @@ public class BitcoinController {
         this.service = service;
     }
 
-    @Operation(summary = "Fetches the historical Bitcoin price along with the highest & lowest price markers ")
+    @Operation(summary = "Fetches the historical Bitcoin prices for a given period along with the highest & lowest price markers ")
     @GetMapping(path = "/bitcoin/history", produces = {APPLICATION_JSON_VALUE})
     @CrossOrigin(origins = "*")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully Fetched bitcoin history"),
-            @ApiResponse(responseCode = "400", description = "given input details are not correct")
+            @ApiResponse(responseCode = "400", description = "Given inputs are not correct")
     })
-            // Todo allow only web and remove *
+    // Todo allow only web url and remove *
+    // TODO add more validations
     public ResponseEntity<Response> getHistory(BitcoinRequest bitcoinRequest) {
         return ResponseEntity.ok(service.getHistory(bitcoinRequest.toCommand()));
     }
