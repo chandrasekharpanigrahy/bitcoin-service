@@ -5,7 +5,8 @@
 # Hexagonal architecture
     We have used hexagonal architecture. This will help to keep the domain clean and independent of the framework and infrastructure. 
     As frameworks and infrastructures change frequently, this architecture ensures our domain/business functionality remains unchanged.
-    For more information please [here](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)) and https://www.baeldung.com/hexagonal-architecture-ddd-spring
+For more information please [here](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)) and [here](https://www.baeldung.com/hexagonal-architecture-ddd-spring)
+
 # Requirements
     For building and running the application you need:
         Java 17
@@ -34,6 +35,6 @@
         offline: true
 ```
 # Documentation
-    for documentation click on the below image or go to http://localhost:8080/swagger-ui/index.html#/ after running the application locally.
-    ![img.png](img.png)
+    For documentation click on the below image or go to http://localhost:8080/swagger-ui/index.html#/ after running the application locally.
+![img.png](img.png)
     
